@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'contacts/main.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'contacts/style.css' %}">
+</head>
+
+<body>
+
+<!-- Top navigation -->
+<div class="topnav">
+
+  <!-- Centered link -->
+  <div class="topnav-centered">
+    <a href="#home" class="active nav-wider">Contacts App</a>
+  </div>
+  
+  <!-- Left-aligned links (default) -->
+  <a href="#news">Signout</a>
+  <a href="#contact"></a>
+  
+  <!-- Right-aligned links -->
+  <div class="topnav-right">
+    <!-- <a href="#search"></a>
+    <a href="#about"></a> -->
+    {% if user.is_authenticated %}
+    <div style = "text-align:right;">
+    <a href="/signout"> Signout </a>
+    {% endif %}
+    </div>
+  </div>
+  
+</div>
+
+<div>
+    {% block content %} {% endblock %}
+</div>
+
+</body>
+</html>
